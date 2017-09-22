@@ -63,6 +63,7 @@ TronSubgame.prototype.goToNextStep = function() {
       break;
     case 'up':
       this.player1.i--;
+      break;
   }
   switch (this.player2.direction) {
     case 'left':
@@ -76,17 +77,50 @@ TronSubgame.prototype.goToNextStep = function() {
       break;
     case 'down':
       this.player2.i++;
+      break;
   }
-  // TODO: check is not anymore in the grid
-  // TODO: draw case
-  if (this.board[this.player1.i][this.player1.j] !== null) {
-    return "player1";
+  // When there is collision of vehicles
+  if(this.player1.i === this.player2.i && this.player1.j === this.player2.j) {
+    return "both";
   }
-  if (this.board[this.player2.i][this.player2.j] !== null) {
+  // When a player hits the border
+  if (this.player1.i < 0) {
     return "player2";
   }
+  if (this.player1.i > 29) {
+    return "player2";
+  }
+  if (this.player1.j < 0) {
+    return "player2";
+  }
+  if (this.player1.j > 29) {
+    return "player2";
+  }
+  if (this.player2.i < 0) {
+    return "player1";
+  }
+  if (this.player2.i > 29) {
+    return "player1";
+  }
+  if (this.player2.j < 0) {
+    return "player1";
+  }
+  if (this.player2.j > 29) {
+    return "player1";
+  }
+
+  // When a players hits a trail
+  if (this.board[this.player1.i][this.player1.j] !== null) {
+    return "player2";
+  }
+  if (this.board[this.player2.i][this.player2.j] !== null) {
+    return "player1";
+  }
+
+  // Update positions
   this.board[this.player1.i][this.player1.j] = 1;
   this.board[this.player2.i][this.player2.j] = 2;
+  return undefined;
 };
 
 
@@ -126,13 +160,24 @@ $(document).ready(function() {
     // $("#imagePlayer2").css({'transform': 'rotate(270deg)'});
     var refreshIntervalId = setInterval(function() {
       var winner = subgame.goToNextStep();
-      if (winner) {
+      if (winner === "player1") {
         // TODO: change the result according to winner value
         $('#game-board').html("<div class='result'>Player 1 wins</div>");
+      }
+      if (winner === "player2") {
+        // TODO: change the result according to winner value
+        $('#game-board').html("<div class='result'>Player 2 wins</div>");
+      }
+      if (winner === "both") {
+        // TODO: change the result according to winner value
+        $('#game-board').html("<div class='result'>Draw</div>");
+      }
+      if(winner) {
         clearInterval(refreshIntervalId); // Stop the setInterval
       }
       renderBoard();
-    }, 300);
+      }, 300);
+
 
     $(document).keydown(function(event) {
       event.preventDefault();
