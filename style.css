@@ -1,0 +1,179 @@
+html, body {
+  color: white;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 2  4px;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding-bottom: 10px;
+}
+
+#ironhackers {
+  display: flex;
+  justify-content: space-between;
+}
+
+#ironhacker1 {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 0px rgba(143,133,117,1);
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  height: 55px;
+  padding: 10px 25px;
+  text-align: center;
+  width: 80px;
+}
+
+#ironhacker2 {
+  background-color: white;
+  float: right;
+  margin-bottom: 40px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 0px rgba(143,133,117,1);
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  height: 55px;
+  padding: 10px 25px;
+  text-align: center;
+  width: 80px;
+}
+
+h1 {
+  font-size: 125px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 5px 5px 15px rgba(255, 255, 255, 1);
+}
+
+#container {
+  margin: 10px auto;
+  width: 490px;
+}
+
+#main {
+  position: relative;
+}
+
+#imagePlayer1 {
+  height: 15px;
+  width: 15px;
+}
+
+#imagePlayer2 {
+  height: 15px;
+  width: 15px;
+}
+
+#game-board,
+#game-over {
+  background: white;
+  border-radius: 4px;
+  padding: 7px;
+}
+
+#game-board {
+  box-shadow: 1px 1px 1px 0 #999;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  background: rgba(225, 226, 241, 0.5);
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 15px;
+  float: left;
+  margin: 0.5px;
+  width: 15px;
+}
+
+#game-over {
+  background: rgba(255, 255, 255, 0.7);
+  box-sizing: border-box;
+  color: #3582b8;
+  font-size: 40px;
+  font-weight: bold;
+  height: 620px;
+  padding-top: 2  00px;
+  text-align: center;
+  width: 622px;
+}
+
+#game-over.hide {
+  display: none;
+}
+
+#game-over .won,
+#game-over .lost {
+  display: none;
+}
+
+#game-over.show-won .won,
+#game-over.show-lost .lost {
+  display: inline;
+}
+
+#game-over p {
+  font-weight: normal;
+}
+
+#user-win {
+  background: rgba(28, 230, 220, 0.4);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 44px 6px rgba(255,255,255,1);
+  color: #3582b8;
+  font-size: 40px;
+  font-weight: bold;
+  height: 620px;
+  padding-top: 200px;
+  text-align: center;
+  width: 622px;
+}
+
+#user-win.hide {
+  display: none;
+}
+
+body{
+  background-image: url(https://static.independent.co.uk/s3fs-public/styles/article_small/public/thumbnails/image/2017/03/13/10/tron-legacy.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.player1 {
+  background-image: url(images/imagePlayer1.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  height:15px;
+  width:15px;
+}
+.player2 {
+  background-image: url(images/imagePlayer2.png);
+  background-repeat:no-repeat;
+  background-size:contain;
+  height:15px;
+  width:15px;
+}
+
+.result {
+  color: black;
+  font-size: 20px;
+}
+
+.js-ironhacker image{
+  height: 15px;
+  width: 15px;
+}
